@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'mechanic.apps.MechanicConfig',
     'technologist.apps.TechnologistConfig',
 
+
 ]
 
 MIDDLEWARE = [
