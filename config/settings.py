@@ -13,12 +13,16 @@ DEBUG = True
 
 if DEBUG:
     ALLOWED_HOSTS = ['*']
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+        ]
+else:
+    STATIC_ROOT = "static/" # 
 
 
-STATICFILES_DIRS = [
-    ('main', os.path.join(BASE_DIR,'static/main')),
-    ('images', os.path.join(BASE_DIR,'static/images')),
-    ]
+AUTH_USER_MODEL = 'authorization.CustomUser'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -30,6 +34,11 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'mechanic.apps.MechanicConfig',
     'technologist.apps.TechnologistConfig',
+    "bootstrap5",
+    "crispy_forms",
+    "crispy_bootstrap5",
+
+
 
 
 ]

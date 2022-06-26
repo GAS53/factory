@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+
+        <div class="text-end">
+            {% if user.is_technologist or user.is_mechanic %}
+            {% include 'authorization/overall/head_row.html' %}
+            <a href="{% url 'authorization:logout' %}"><button type="button" class="btn1 btn-outline-light me-2">Выйти
+                    пользователь - {{user.username}}</button></a>
+            {% else %}
+            <a href="{% url 'authorization:index' %}"><button type="button" class="btn2 btn-error">Главная</button></a>
+            <a href="{% url 'authorization:login' %}"><button type="button" class="btn2 btn-error">Войти</button></a>
+            <a href="{% url 'authorization:register' %}"><button type="button"
+                    class="btn2 btn-warning">Зарегистрироваться</button></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

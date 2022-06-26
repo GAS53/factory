@@ -1,0 +1,84 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+{% include 'authorization/overall/head.html' %}
+<br><br><br>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">Обучение</strong>
+                <h3 class="mb-0">Стажер</h3>
+                <p class="card-text mb-auto">Обучение работы на текущей технологии без доступа к регулировке параметров
+                </p>
+
+                <a href="{% url 'technologist:index' %}" class="stretched-link"></a>
+
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#ddd6d7" style="--darkreader-inline-fill: #ddd6d7;"
+                        data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#ddd6d7" dy=".3em"
+                        style="--darkreader-inline-fill: #ddd6d7;" data-darkreader-inline-fill="">Thumbnail</text>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">Контроль технологических операций</strong>
+                <h3 class="mb-0">Технолог</h3>
+                {% if not user.is_mechanic %}
+                <div class="mb-1 text-muted">Для входа необходимо залогиниться</div>
+                {% endif %}
+                <p class="mb-auto">Работа с технологией</p>
+                {% if user.is_technologist %}
+                <a href="{% url 'authorization:login' %}" class="stretched-link"></a>
+                {% endif %}
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #b0a99f;"
+                        data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                        style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">Просмотр позиций для ремонта</strong>
+                <h3 class="mb-0">Механик</h3>
+                {% if not user.is_mechanic %}
+                <div class="mb-1 text-muted">Для входа необходимо залогиниться</div>
+                {% endif %}
+                <p class="mb-auto">Ремонт оборудования и все что с ним связано</p>
+                {% if user.is_mechanic %}
+
+                <a href="{% url 'authorization:login' %}" class="stretched-link"></a>
+                {% endif %}
+
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #9fb09f;"
+                        data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                        style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+</div>
