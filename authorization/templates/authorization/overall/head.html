@@ -3,16 +3,24 @@
 
 
         <div class="text-end">
-            {% if user.is_technologist or user.is_mechanic %}
-            {% include 'authorization/overall/head_row.html' %}
-            <a href="{% url 'authorization:logout' %}"><button type="button" class="btn1 btn-outline-light me-2">Выйти
-                    пользователь - {{user.username}}</button></a>
-            {% else %}
-            <a href="{% url 'authorization:index' %}"><button type="button" class="btn2 btn-error">Главная</button></a>
-            <a href="{% url 'authorization:login' %}"><button type="button" class="btn2 btn-error">Войти</button></a>
-            <a href="{% url 'authorization:register' %}"><button type="button"
-                    class="btn2 btn-warning">Зарегистрироваться</button></a>
-            {% endif %}
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'authorization:index' %}"><button type="button"
+                            class="btn2 btn-error">Главная</button></a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'authorization:logout' %}"><button type="button"
+                            class="btn1 btn-outline-light me-2">Выйти</button></a>
+                <li>
+                    <p>Пользователь {{user}}</p>
+                </li>
+
+                {% else %}
+                <li><a href="{% url 'authorization:login' %}"><button type="button"
+                            class="btn2 btn-error">Войти</button></a></li>
+                <li><a href="{% url 'authorization:register' %}"><button type="button"
+                            class="btn2 btn-warning">Зарегистрироваться</button></a></li>
+                {% endif %}
+            </ul>
         </div>
     </div>
 </div>

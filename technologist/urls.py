@@ -6,4 +6,5 @@ app_name = 'technologist'
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
+
 ]

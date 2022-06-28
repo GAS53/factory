@@ -11,36 +11,54 @@ from django.views.generic.edit import FormView
 from django.views.generic import ListView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import LoginForm
+from django.contrib.auth import authenticate
+from django.http import HttpResponse
+from django.contrib.auth import logout
+from .forms import CustomUserCreationForm, CustomUserChangeForm, LoginForm
 from .models import CustomUser
-
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login as log_in
 
 class IndexView(TemplateView):
     template_name = 'authorization/index.html'
 
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(request,  username=cd['username'],  password=cd['password'])
 
-class CustomLoginView(LoginView):
-    template_name = 'authorization/login.html'
-    success_url = 'authorization/index.html'
+        if user is not None:
+            if user.is_active:
+                log_in(request, user)
+               
+                return  render(request, 'authorization/index.html', {'form': form})
+            else:
+                
+                return render(request, 'authorization/bad_account.html')
+        else:
+            
+            return render(request, 'authorization/bad_login.html')
+    else:
+        form = LoginForm()
+    return render(request, 'authorization/login.html', {'form': form})
 
-    def form_valid(self, form):
-        res = super().form_valid(form)
-        name = self.request.user.get_username()
-        messages.add_message(self.request, messages.INFO, mark_safe(_(f'совершон вход {name}')))
-        return res
 
-    def form_invalid(self, form):
-        res = super().form_invalid(form)
-        messages.add_message(self.request, messages.WARNING, mark_safe(_(f'неудачная попытка входа')))
-        return res
+
 
 
 class CustomLogoutView(LogoutView):
+
     def dispatch(self, request, *args, **kwargs):
         messages.add_message(self.request, messages.INFO, _("Совершен выход!"))
         return super().dispatch(request, *args, **kwargs)
 
+def logout_view(request):
+    logout(request)
+    return render(request, 'authorization/index.html')
 
 class ProfileEditView(UserPassesTestMixin, UpdateView):
     model = get_user_model()

@@ -11,6 +11,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+STATICFILES_DIRS = [
+    ('scheme', os.path(stat)
+]
+
+
 if DEBUG:
     ALLOWED_HOSTS = ['*']
     STATICFILES_DIRS = [
@@ -23,6 +28,7 @@ else:
 AUTH_USER_MODEL = 'authorization.CustomUser'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',

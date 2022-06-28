@@ -5,7 +5,7 @@ from django.db import models
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     login_validator = ASCIIUsernameValidator()
-    login = models.CharField(max_length=128, unique=True, 
+    username = models.CharField(max_length=128, unique=True, 
         help_text = ('Не больше 128 символов цифры и латинские буквы'),
         validators = [login_validator], verbose_name='Логин',
         error_messages= {"unique": ("Пользователь с таким логином уже существует")})
@@ -14,15 +14,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(verbose_name='фамилия', max_length=128, blank=False)
     email = models.EmailField(verbose_name='Электронная почта', unique=True)
     phone = models.CharField(verbose_name='Номер телефона в формате 9.. ... .. ..', max_length=10)
-    date_of_birth = models.DateField(verbose_name='День рождения')
+    date_of_birth = models.DateField(verbose_name='День рождения', null=True)
     is_active = models.BooleanField(default=True)
     is_technologist = models.BooleanField(default=False, verbose_name='Технолог')
     is_mechanic = models.BooleanField(default=False, verbose_name='механик')
     creation_date = models.DateField(auto_now_add=True, verbose_name='дата создания учетной записи')
-
+    is_staff = models.BooleanField(default=True)
 
     objects = UserManager()
-    USERNAME_FIELD = "login"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ['first_name', 'phone']
     EMAIL_FIELD = "email"
 
