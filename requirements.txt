@@ -1,0 +1,11 @@
+asgiref==3.5.2
+beautifulsoup4==4.11.1
+crispy-bootstrap5==0.6
+Django==4.0.5
+django-bootstrap-v5==1.0.11
+django-crispy-forms==1.14.0
+django-phonenumber-field==6.3.0
+phonenumbers==8.12.50
+phonenumberslite==8.12.50
+soupsieve==2.3.2.post1
+sqlparse==0.4.2

@@ -9,20 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-STATICFILES_DIRS = [
-    ('scheme', os.path(stat)
-]
-
-
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-    STATICFILES_DIRS = [
-        BASE_DIR / 'static',
-        ]
-else:
-    STATIC_ROOT = "static/" # 
 
 
 AUTH_USER_MODEL = 'authorization.CustomUser'
@@ -40,9 +27,11 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'mechanic.apps.MechanicConfig',
     'technologist.apps.TechnologistConfig',
+    'supervisor.apps.SupervisorConfig',
     "bootstrap5",
     "crispy_forms",
     "crispy_bootstrap5",
+    'imagekit',
 
 
 
@@ -116,9 +105,28 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
-MEDIA_URL = '/media/'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEBUG = True
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# STATICFILES_DIRS = [STATIC_ROOT]
+
+# DFAState
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+    STATICFILES_DIRS = ['static/'] # для debug
+    # STATICFILES_DIRS = [
+    # ('mini',os.path.),
+    # ('images',
+    # 'с:/work/imgs'),
+    # ]
+else:
+    STATIC_ROOT = BASE_DIR / 'static' # для deploy
+    ALLOWED_HOSTS = ['127.0.0.1', '192.168.2.81', 'localhost']

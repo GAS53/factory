@@ -1,62 +1,149 @@
 {% extends 'authorization/base.html' %}
-
+{% load static %}
 
 {% block content %}
-<div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 775.2px;">
-    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
-        <div class="card">
-            <svg src="{% scheme " class="bd-placeholder-img card-img-top" width="100%" height="200" role="img"
-                aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96" style="--darkreader-inline-fill: #585f63;"
-                    data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"
-                    style="--darkreader-inline-fill: #d6d2cd;" data-darkreader-inline-fill="">Image cap</text>
-            </svg>
 
-            <div class="card-body">
-                <h5 class="card-title">Схемы</h5>
-                <p class="card-text"><small class="text-muted">Управление технологией онлайн</small></p>
 
+
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <a href="{% url 'technologist:H701' %}">
+                        <img src="{% static 'images/mini/schems.jpeg' %}" width="300" height="180" alt="schems">
+                        <div class="card-body">
+                            <p class="card-text">Технологические схемы</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <a href="">
+                        <img src="{% static 'images/mini/interlock.png' %}" width="300" height="180"
+                            alt="safety interlock">
+                        <div class="card-body">
+                            <p class="card-text">Блокировки технологического режима</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <a href="">
+                        <img src="{% static 'images/mini/trends.png' %}" width="300" height="180" alt="trends">
+                        <div class="card-body">
+                            <p class="card-text">Тренды ведения технологического режима</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <a href="">
+                        <img src="{% static 'images/mini/mode.png' %}" width="300" height="180" alt="mode">
+                        <div class="card-body">
+                            <p class="card-text">Программы каскадных режимов</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #43484b;"
+                            data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                            style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text>
+                    </svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #43484b;"
+                            data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                            style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text>
+                    </svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #43484b;"
+                            data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                            style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text>
+                    </svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 33.3333%; top: 0px;">
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img"
-                aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96" style="--darkreader-inline-fill: #585f63;"
-                    data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"
-                    style="--darkreader-inline-fill: #d6d2cd;" data-darkreader-inline-fill="">Image cap</text>
-            </svg>
-
-            <div class="card-body">
-                <h5 class="card-title">Тренды</h5>
-                <p class="card-text"><small class="text-muted">История ведения процессов</small></p>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 66.6667%; top: 0px;">
-        <div class="card">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="200" role="img"
-                aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#868e96" style="--darkreader-inline-fill: #585f63;"
-                    data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"
-                    style="--darkreader-inline-fill: #d6d2cd;" data-darkreader-inline-fill="">Image cap</text>
-            </svg>
-
-            <div class="card-body">
-                <h5 class="card-title">Блокировки</h5>
-                <p class="card-text"><small class="text-muted">Настройки безопасности процесса</small></p>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 {% endblock content %}

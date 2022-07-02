@@ -1,0 +1,10 @@
+{% extends "technologist/base.html" %}
+
+{% block content %}
+
+{% for b in data %}
+<a href="{{ b.book.url }}">{{ b.title }}</a>
+<img src="{{ b.cover.url }}">
+{% endfor %}
+
+{% endblock content %}
